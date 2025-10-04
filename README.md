@@ -1,6 +1,6 @@
 # 🌸 Rose Adventure Game 🌸
 
-¡Hola! Bienvenida a **Rose Adventure Game**, una aventura mágica en 3D inspirada en Rosé de BLACKPINK. ¡Explora mundos increíbles, responde trivias divertidas y desafía tus habilidades musicales mientras sigues los pasos de Rosé!
+¡Hola! Bienvenid@ a **Rose Adventure Game**, una aventura mágica en 3D inspirada en Rosé de BLACKPINK. ¡Explora mundos increíbles, responde trivias divertidas y desafía tus habilidades musicales mientras sigues los pasos de Rosé!
 
 Este proyecto nació inspirado en la pasión de Milena por BLACKPINK, para aprender, experimentar y crear algo especial juntos — ¡una aventura de padre e hija en código, música e imaginación! 🎶✨
 
