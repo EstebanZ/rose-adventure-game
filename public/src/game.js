@@ -4,6 +4,9 @@ const Howl = window.Howl;
 const canvas = document.getElementById('renderCanvas');
 const engine = new Engine(canvas, true);
 
+// Score system
+let score = 0;
+
 // Trivia questions about Rose/Blackpink
 const triviaQuestions = [
   { question: "What is Rose's real name?", options: ["Park Chaeyoung", "Kim Jisoo", "Lalisa Manoban", "Jennie Kim"], answer: 0 },
@@ -35,6 +38,8 @@ async function startMusicChallenge() {
   Tone.Transport.start();
   music.play(); // Play background music
   alert('Listen and sync to the rhythm!'); // Placeholder for challenge logic
+  score += 20; // Assume completed for now
+  updateHUD();
 }
 
 function showTrivia() {
@@ -45,6 +50,8 @@ function showTrivia() {
     const userAnswer = prompt('Enter the number of your answer:');
     if (parseInt(userAnswer) - 1 === q.answer) {
       alert('Correct!');
+      score += 10;
+      updateHUD();
       currentQuestion++;
     } else {
       alert('Wrong, try again.');
@@ -74,9 +81,30 @@ function createScene() {
   const rose = MeshBuilder.CreateSphere('rose', { diameter: 1 }, scene);
   rose.position.y = 1;
   
+  // Poster for trivia (plane)
+  const poster = MeshBuilder.CreatePlane('poster', { width: 2, height: 3 }, scene);
+  poster.position.set(5, 1.5, 0);
+  poster.rotation.y = Math.PI / 4;
+  const posterMaterial = new StandardMaterial('posterMat', scene);
+  posterMaterial.diffuseColor = new BABYLON.Color3(1, 0.5, 0.5); // Pink placeholder
+  poster.material = posterMaterial;
+  
+  // Microphone for music challenge (cylinder)
+  const mic = MeshBuilder.CreateCylinder('mic', { height: 2, diameter: 0.2 }, scene);
+  mic.position.set(-5, 1, 0);
+  const micMaterial = new StandardMaterial('micMat', scene);
+  micMaterial.diffuseColor = new BABYLON.Color3(0.8, 0.8, 0.8);
+  mic.material = micMaterial;
+  
   // Add action to ground for trivia trigger
   ground.actionManager = new BABYLON.ActionManager(scene);
   ground.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, () => {
+    showTrivia();
+  }));
+  
+  // Add action to poster for trivia
+  poster.actionManager = new BABYLON.ActionManager(scene);
+  poster.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, () => {
     showTrivia();
   }));
   
@@ -85,6 +113,26 @@ function createScene() {
   rose.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, () => {
     startMusicChallenge();
   }));
+  
+  // Add action to mic for music challenge
+  mic.actionManager = new BABYLON.ActionManager(scene);
+  mic.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, () => {
+    startMusicChallenge();
+  }));
+  
+  // HUD for score
+  const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+  const scoreText = new BABYLON.GUI.TextBlock();
+  scoreText.text = "Score: " + score;
+  scoreText.color = "white";
+  scoreText.fontSize = 24;
+  scoreText.top = "-40px";
+  advancedTexture.addControl(scoreText);
+  
+  // Function to update HUD
+  window.updateHUD = () => {
+    scoreText.text = "Score: " + score;
+  };
   
   return scene;
 }
