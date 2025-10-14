@@ -1,7 +1,7 @@
 # 🎮 Rose Adventure Game
 
 **Género:** Aventura 3D, exploración, trivia y ritmo  
-*```text
+```text
 flowchart TD
     A[Menú Principal] --> B[Jugar]
     B --> C[Explorar Escenario]
@@ -16,8 +16,9 @@ flowchart TD
     I -->|No| K[Siguiente Nivel]
     J --> L[Créditos / Reiniciar]
     K --> L
+```
 
-```eb (PC-y-móvil)
+``` eb (PC-y-móvil)
 
 **Motor:** Babylon.js + Howler.js + Tone.js  
 **Lenguaje principal:** JavaScript  
