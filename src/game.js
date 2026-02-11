@@ -271,9 +271,9 @@ class RoseAdventureGame {
             Math.cos(this.cameraConfig.angle)
         );
         const right = new THREE.Vector3(
-            Math.cos(this.cameraConfig.angle),
+            -Math.cos(this.cameraConfig.angle),
             0,
-            -Math.sin(this.cameraConfig.angle)
+            Math.sin(this.cameraConfig.angle)
         );
         
         // Calculate movement
