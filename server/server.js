@@ -11,8 +11,8 @@ app.use(express.static(path.join(__dirname, '../public')));
 // Serve src files
 app.use('/src', express.static(path.join(__dirname, '../src')));
 
-// Serve node_modules for Babylon.js
-app.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
+// Serve Three.js library files specifically (not all node_modules for security)
+app.use('/node_modules/three', express.static(path.join(__dirname, '../node_modules/three')));
 
 // Main route
 app.get('/', (req, res) => {
