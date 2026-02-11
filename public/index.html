@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose Adventure Game - Mundo Abierto 3D</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+        #renderCanvas {
+            width: 100%;
+            height: 100vh;
+            display: block;
+            touch-action: none;
+        }
+        #ui-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            z-index: 100;
+            font-size: 18px;
+        }
+        #controls-info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 100;
+        }
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            z-index: 101;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">🌸 Cargando Rose Adventure... 🌸</div>
+    
+    <div id="ui-overlay">
+        <h2>🌸 Rose Adventure Game 🌸</h2>
+        <p id="position-info">Posición: (0, 0, 0)</p>
+    </div>
+
+    <div id="controls-info">
+        <strong>Controles:</strong><br>
+        WASD - Mover | SPACE - Saltar | SHIFT - Correr | Mouse - Mirar
+    </div>
+
+    <canvas id="renderCanvas"></canvas>
+
+    <!-- Three.js -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "/node_modules/three/build/three.module.js"
+        }
+    }
+    </script>
+    
+    <!-- Game Script -->
+    <script type="module" src="/src/game.js"></script>
+</body>
+</html>

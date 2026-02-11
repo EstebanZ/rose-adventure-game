@@ -1,0 +1,28 @@
+{
+  "name": "rose-adventure-game",
+  "version": "1.0.0",
+  "description": "3D open world adventure game inspired by Rosé from BLACKPINK",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js"
+  },
+  "keywords": [
+    "game",
+    "3d",
+    "babylon",
+    "adventure",
+    "blackpink"
+  ],
+  "author": "Esteban and Milena",
+  "license": "MIT",
+  "dependencies": {
+    "@babylonjs/core": "^6.0.0",
+    "@babylonjs/loaders": "^6.0.0",
+    "express": "^4.18.2",
+    "howler": "^2.2.3",
+    "socket.io": "^4.6.1",
+    "three": "^0.182.0",
+    "tone": "^14.7.77"
+  }
+}
