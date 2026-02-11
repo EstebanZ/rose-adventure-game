@@ -28,6 +28,9 @@ Este es un juego de aventura en 3D de mundo abierto inspirado en Rosé de BLACKP
 ## 🚀 Cómo Ejecutar el Juego
 
 ### Opción 1: Con Docker (Recomendado)
+
+Docker instala todo automáticamente. Solo ejecuta:
+
 ```bash
 # Desarrollo (puerto 8080)
 docker compose up dev
@@ -36,7 +39,7 @@ docker compose up dev
 docker compose up prd
 ```
 
-**⚠️ Problemas con Docker?** Ver [DOCKER.md](DOCKER.md) para soluciones.
+**Nota:** La primera vez descargará imágenes e instalará dependencias automáticamente.
 
 ### Opción 2: Sin Docker
 ```bash
