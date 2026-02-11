@@ -25,20 +25,30 @@ Si tienes Docker instalado, corre estos comandos mágicos:
 
 ```bash
 # Para desarrollo (con actualizaciones en vivo)
-docker-compose up dev
+docker compose up dev
 
 # Para producción (versión final)
-docker-compose up prd
+docker compose up prd
 ```
 
 Abre `http://localhost:8080` (desarrollo) o `http://localhost` (producción) en tu navegador y ¡listo! 🌟
+
+**Nota:** Si encuentras problemas con Docker, consulta [DOCKER.md](DOCKER.md) para soluciones y troubleshooting.
 
 ### Opción 2: Para Desarrolladores
 
 1. Instala Docker.
 2. Clona este repo: `git clone https://github.com/EstebanZ/rose-adventure-game.git`
-3. Corre `docker-compose up dev`.
+3. Corre `docker compose up dev`.
 4. ¡Edita y juega!
+
+### Opción 3: Sin Docker
+
+```bash
+npm install
+npm start
+# Abre http://localhost:3000
+```
 
 ---
 

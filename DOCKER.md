@@ -98,6 +98,34 @@ To verify the setup is correct:
 
 ## Estructura de Volúmenes / Volume Structure
 
+### Antes del Fix / Before the Fix (❌)
+```
+Host Machine              Docker Container
+    |                           |
+    ├── package.json ──────────> /app/package.json
+    ├── src/ ──────────────────> /app/src/
+    ├── public/ ───────────────> /app/public/
+    └── (no node_modules) ────> /app/node_modules (❌ VACÍO / EMPTY)
+                                     |
+                                     └── three/ (❌ NO EXISTE / DOESN'T EXIST)
+```
+
+### Después del Fix / After the Fix (✅)
+```
+Host Machine              Docker Container         Named Volume
+    |                           |                         |
+    ├── package.json ──────────> /app/package.json       |
+    ├── src/ ──────────────────> /app/src/               |
+    ├── public/ ───────────────> /app/public/            |
+    └── (no node_modules)       /app/node_modules <──────┘
+                                     |                    (Persisted)
+                                     └── three/ (✅ EXISTE / EXISTS)
+                                         └── build/
+                                             └── three.module.js ✅
+```
+
+### Detalles / Details
+
 ```
 Container:
 /app

@@ -30,11 +30,13 @@ Este es un juego de aventura en 3D de mundo abierto inspirado en Rosé de BLACKP
 ### Opción 1: Con Docker (Recomendado)
 ```bash
 # Desarrollo (puerto 8080)
-docker-compose up dev
+docker compose up dev
 
 # Producción (puerto 80)
-docker-compose up prd
+docker compose up prd
 ```
+
+**⚠️ Problemas con Docker?** Ver [DOCKER.md](DOCKER.md) para soluciones.
 
 ### Opción 2: Sin Docker
 ```bash
