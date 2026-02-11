@@ -19,26 +19,29 @@ Imagina un viaje mágico donde tú eres la protagonista. Viaja por escenarios in
 
 ## 🚀 Cómo Empezar la Aventura
 
-### Opción 1: ¡Juega Ahora! (Fácil)
+### Opción 1: Con Docker (Recomendado)
 
-Si tienes Docker instalado, corre estos comandos mágicos:
+Docker construye e instala todo automáticamente. Solo necesitas:
 
 ```bash
 # Para desarrollo (con actualizaciones en vivo)
-docker-compose up dev
+docker compose up dev
 
 # Para producción (versión final)
-docker-compose up prd
+docker compose up prd
 ```
 
 Abre `http://localhost:8080` (desarrollo) o `http://localhost` (producción) en tu navegador y ¡listo! 🌟
 
-### Opción 2: Para Desarrolladores
+**Primera vez?** Docker descargará las imágenes e instalará las dependencias automáticamente. Toma unos minutos la primera vez.
 
-1. Instala Docker.
-2. Clona este repo: `git clone https://github.com/EstebanZ/rose-adventure-game.git`
-3. Corre `docker-compose up dev`.
-4. ¡Edita y juega!
+### Opción 2: Sin Docker
+
+```bash
+npm install
+npm start
+# Abre http://localhost:3000
+```
 
 ---
 
