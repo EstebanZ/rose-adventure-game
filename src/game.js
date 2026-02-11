@@ -22,9 +22,11 @@ class RoseAdventureGame {
         this.isRunning = false;
         
         // Camera settings
-        this.cameraDistance = 10;
-        this.cameraHeight = 5;
-        this.cameraAngle = 0;
+        this.cameraConfig = {
+            distance: 10,
+            height: 5,
+            angle: 0
+        };
         
         this.init();
     }
@@ -250,7 +252,7 @@ class RoseAdventureGame {
         this.canvas.addEventListener('mousemove', (e) => {
             if (isMouseDown) {
                 const deltaX = e.clientX - lastMouseX;
-                this.cameraAngle -= deltaX * 0.005;
+                this.cameraConfig.angle -= deltaX * 0.005;
                 lastMouseX = e.clientX;
             }
         });
@@ -264,14 +266,14 @@ class RoseAdventureGame {
         
         // Calculate movement direction based on camera angle
         const forward = new THREE.Vector3(
-            Math.sin(this.cameraAngle),
+            Math.sin(this.cameraConfig.angle),
             0,
-            Math.cos(this.cameraAngle)
+            Math.cos(this.cameraConfig.angle)
         );
         const right = new THREE.Vector3(
-            Math.cos(this.cameraAngle),
+            Math.cos(this.cameraConfig.angle),
             0,
-            -Math.sin(this.cameraAngle)
+            -Math.sin(this.cameraConfig.angle)
         );
         
         // Calculate movement
@@ -343,9 +345,9 @@ class RoseAdventureGame {
         
         // Position camera behind and above player
         const cameraOffset = new THREE.Vector3(
-            Math.sin(this.cameraAngle + Math.PI) * this.cameraDistance,
-            this.cameraHeight,
-            Math.cos(this.cameraAngle + Math.PI) * this.cameraDistance
+            Math.sin(this.cameraConfig.angle + Math.PI) * this.cameraConfig.distance,
+            this.cameraConfig.height,
+            Math.cos(this.cameraConfig.angle + Math.PI) * this.cameraConfig.distance
         );
         
         this.camera.position.copy(this.player.position).add(cameraOffset);
